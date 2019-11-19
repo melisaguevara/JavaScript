@@ -1,0 +1,271 @@
+{
+    const compose = (...fns)=>x=>fns.reduceRight((v,f)=>f(v), x);
+    const pipe = (...fns)=>x=>fns.reduce((v,f)=>f(v), x)
+
+    const song1 = {
+        id: 10092,
+        name: "Taxman",
+        artist: "The Beatles",
+        album: "Revolver",
+        authors: ["John Lennon", "Paul McCartney", "George Harrison", "Ringo Starr"],
+        duration: 353
+    }
+    const song2 = {
+        id: 10093,
+        name: "A Day in the Life",
+        artist: "The Beatles",
+        album: "Sgt. Pepper's Lonely Hearts Club Band",
+        authors: ["John Lennon", "Paul McCartney", "George Harrison", "Ringo Starr"],
+        duration: 421
+    }
+    const song3 = {
+        id: 66612,
+        name: "A Hard Day's Night",
+        artist: "The Beatles",
+        album: "A Hard Day's Night",
+        authors: ["John Lennon", "Paul McCartney", "George Harrison", "Ringo Starr"],
+        duration: 400
+    }
+    const song4 = {
+        id: 66613,
+        name: "Everything in Its Right Place",
+        artist: "Radiohead",
+        album: "Kid A",
+        authors: ["Colin Greenwood", "Jonny Greenwood", "Ed O'Brien", "Philip Selway", "Thom Yorke"],
+        duration: 421
+    }
+    const song5 = {
+        id: 66613,
+        name: "Reckoner",
+        artist: "Radiohead",
+        album: "In Rainbows",
+        authors: ["Colin Greenwood", "Jonny Greenwood", "Ed O'Brien", "Philip Selway", "Thom Yorke"],
+        duration: 221
+    }
+    const song6 = {
+        id: 77793981,
+        name: "In the Flowers",
+        artist: "Animal Collective",
+        album: "Merriweather Post Pavilion",
+        authors: ["Avey Tare", "Panda Bear", "Geologist", "Deakin"],
+        duration: 501
+    }
+    const song7 = {
+        id: 77793981,
+        name: "Summertime Clothes",
+        artist: "Animal Collective",
+        album: "Merriweather Post Pavilion",
+        authors: ["Avey Tare", "Panda Bear", "Geologist", "Deakin"],
+        duration: 460
+    }
+    const song8 = {
+        id: 112,
+        name: "Lush",
+        artist: "Four Tet",
+        album: "New Energy",
+        authors: ["Kieran Hebden"],
+        duration: 601
+    }
+    const song9 = {
+        id: 441223,
+        name: "Open Eye Signal",
+        artist: "Jon Hopkins",
+        album: "New Energy",
+        authors: ["Kieran Hebden"],
+        duration: 331
+    }
+    const song10 = {
+        id: 112,
+        name: "El Pescador",
+        artist: "Totó la Momposina",
+        album: "La Candela Viva",
+        authors: ["Sonia Bazanta Vides"],
+        duration: 399
+    }
+
+    const songs = [song1, song2, song3, song4, song5, song6, song7, song8, song9, song10]
+
+    const englishSongs = songs.slice(0, 9)
+    const latinSongs = songs.slice(9, 10)
+    const electronic = songs.slice(7, 9)
+    const psychedelich = songs.slice(5, 7)
+    const rock = songs.slice(0, 5)
+    //console.log(englishSongs)
+    //console.log(latinSongs)
+    //console.log(electronic)
+    //console.log(rock)
+    //console.log(psychedelich)
+
+    const generoRock = {
+        Rock: rock
+    }
+    const generoElectronic = {
+        electronica: electronic
+    }
+    const generoPsychedelich = {
+        psych: psychedelich
+    }
+    const generoLatino = {
+        latino: latinSongs
+    }
+    const generoEnglish = {
+        english: englishSongs
+    }
+
+    const generos = [generoRock, generoLatino, generoEnglish, generoElectronic, generoPsychedelich]
+
+    console.log("hola coquito linda")
+
+    /*    const OmitAlbumIncludePosition = (song,index)=>{
+
+        var {album, ...noalbum} = song
+        song_Position = {
+            ...noalbum,
+            position: index
+        }
+        return song_Position
+    } */
+
+    /*    const IncludePosition = (song,index) => {
+        song_position={...song, position: index}
+        return song_position
+    }
+
+    console.log(songs.map((song,index)=>IncludePosition(song,index)))
+
+    const OmitAlbum = song => {
+        var {album, ...noalbum}=song
+        return noalbum}
+
+    const IncludePositionOmitAlbum = compose(OmitAlbum,IncludePosition)
+
+    console.log(songs.map((song, index)=>IncludePositionOmitAlbum(song,index)))
+
+
+    //const processSongs = songs=>songs.map((song,index)=>OmitAlbumIncludePosition(song, index))
+
+    //console.log(processSongs(songs))
+
+    const containsSubstring = (array,string)=>array.filter(a=>a.includes(string))
+
+    console.log(containsSubstring(["a", "ab", "b"], "b"))
+
+    const masDeTres = song=>{
+        albumyartista = song.artist + " " + song.album
+        albumMasArtista = albumyartista.split(" ")
+        return albumMasArtista.length > 3
+    }
+
+    const masDeTres2 = song=>{
+        return song.artist.split(" ").concat(song.album.split(" ")).length > 3
+    }
+
+    const processSongsMasDeTres = songs => 
+    songs.map((song,index)=>IncludePosition(song,index))
+    .filter(song => masDeTres(song))
+    .map(song=>OmitAlbum(song))
+
+    console.log(processSongsMasDeTres(songs))*/
+
+    const sumaLista = lista=>lista.reduce((acumulador,valoractual)=>acumulador + valoractual)
+
+    a = [1, 2, 3, 1, 2, 3, 1, 2, 3]
+
+    console.log(sumaLista(a))
+
+    const suma100Lista = lista=>lista.reduce(((acumulador,valoractual)=>acumulador + valoractual), 100)
+
+    console.log(suma100Lista(a))
+
+    const SongWords = (...songs)=>songs.reduce(((acumulador,song)=>acumulador + song.name.split(" ").length), 0)
+
+    console.log(SongWords(song1, song2, song3))
+
+    const getSongNames = (songs)=>songs.reduce(((acc,song)=>acc.concat(song.name.split(" "))), [])
+
+    /*const getSongNames = (songs) => songs.reduce(((acc,song) => {
+        acc.push(song.name.split(" "))
+        return acc}),[])*/
+
+    console.log(getSongNames([song1, song2, song3]))
+
+    const countDistinctAuthors = songs=>songs.reduce(((acc,song)=>acc.concat(song.authors.filter(author=>!acc.includes(author)))), [])
+
+    console.log(countDistinctAuthors(songs))
+
+    const distinctAuthorsFlatMap = songs=>songs.flatMap(song=>song.authors).filter((item,index,array)=>array.indexOf(item) === index)
+
+    console.log(distinctAuthorsFlatMap(songs))
+
+    const miFlat = lista=>lista.reduce((acc,val)=>acc.concat(val))
+
+    console.log(miFlat([[2, 3], [1, 4, [1, 2, 3], 3, 2], 3]))
+
+    const miFlatMap = (lista,fnc)=>lista.reduce((acc,val)=>acc.concat(val.map(valor=>fnc(valor))))
+
+    console.log(miFlatMap([[2, 31, 4, 1, 2, 3, 3, 2]], a=>a * 2))
+
+    const getArtistSongCounts = lista=>lista.reduce(((acc,val)=>{
+        (acc[val.artist]) ? acc[val.artist] = acc[val.artist] + 1 : acc[val.artist] = 1;
+        return acc
+    }
+    ), {})
+
+    console.log(getArtistSongCounts(songs))
+
+    const flattenAuthors = songs=>songs.map(song=>{
+        var {authors, ...noauthors} = song;
+        return authors.reduce(((acc,val,index)=>{
+            acc["author" + index] = val;
+            return acc
+        }
+        ), noauthors)
+    }
+    )
+
+    console.log(flattenAuthors(songs))
+
+    const nombresDuracion = (num,...listas)=>listas.flat().filter(song=>song.duration > num).map(song=>song.name).join(", ")
+
+    console.log(nombresDuracion(400, englishSongs, latinSongs))
+
+    console.log(nombresDuracion(300, psychedelich, electronic, rock))
+
+    const masLargas = (...lists)=>lists.map(listi=>listi.reduce(((acc,val)=>{
+        (acc.duration > val.duration) ? acc : acc = val;
+        return acc
+    }
+    ), {}))
+
+    console.log(masLargas(psychedelich, electronic, rock))
+
+    const AuthorsList = (...lists)=>lists.flatMap(a=>a).reduce(((acc,val)=>acc.concat(val.authors.filter(author=>!acc.includes(author)))), [])
+
+    console.log("estee", AuthorsList(psychedelich, electronic, rock, englishSongs))
+
+    const filterListofListsbyID = (ids,...lists)=>lists.map(list_i=>list_i.filter(song=>ids.includes(song.id)))
+
+    console.log(filterListofListsbyID([10092, 10093, 10, 112, 66612, 87], psychedelich, electronic, rock, englishSongs))
+
+    const setGenre = listaGenero=>listaGenero.flatMap(objetoGenero=>{
+        var canciones = [];
+        valores = Object.values(objetoGenero).flat()
+        valores.map(song=>{
+            song["genre"] = Object.keys(objetoGenero)[0];
+            canciones.push(song)
+            return song
+        }
+        )
+        return canciones
+    }
+    )
+
+    console.log(setGenre(generos))
+
+    const getPropertyByGenre = (lista,genero,propiedad) => lista.filter(song=>song.genre==genero).map(a=>a[propiedad])
+
+    var cancionesConGenero=setGenre(generos)
+
+    console.log(getPropertyByGenre(cancionesConGenero,"english","duration"))
+
+}
