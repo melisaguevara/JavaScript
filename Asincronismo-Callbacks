@@ -1,0 +1,47 @@
+//Un callback es una función que recibe otra como parámetro, y la ejecuta
+
+function primera() {
+    console.log("Estoy en Primera")
+}
+
+function segunda(func) {
+    setTimeout(func, 2000);
+    console.log("Estoy en Segunda")
+}
+
+segunda(primera)
+//En esta ejecución, aparecerá primero un "Estoy en segunda" y luego de los 2segs, se ejecuta primera y aparece el console.log de "Estoy en primera"
+//En este ejemplo además se simula un proceso asincrónico,  ya que el código espera 2segundos para ejecutar la función "primera"
+
+//Este es otro ejemplo con callbacks, en este caso sincrónico 
+
+function doHomework(subject, callback) {
+  alert(`Starting my ${subject} homework.`);
+  callback();
+}
+
+function alertFinished(){
+  alert('Finished my homework');
+}
+
+doHomework('math', alertFinished);
+
+//Primero se ejecuta la alerta "Starting my homework" y luego la función doHomework ejecuta la función alertFinished que había recibido
+//como parámetro y se ejecuta el alert "Finished homework"
+
+//Otro ejemplo asincrónico
+
+const networkRequest = () => {
+  setTimeout(() => {
+    console.log('Async Code');
+  }, 2000);
+};
+
+console.log('Hello World');   //(a)
+ 
+networkRequest();             //(b)
+
+console.log('The End');        //(c)
+
+//En este caso, se ejecuta a y se logea el "Hello World", luego se ejecuta el networkRequest, ahí el setTimeOut retarda la ejecución 2segs
+//Sin embargo, mientras el código sigue, así que se logea el "The end"; y por último cuando han pasado los 2segs se muestra el "Async Code"
