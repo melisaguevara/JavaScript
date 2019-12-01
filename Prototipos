@@ -1,0 +1,20 @@
+//Para acceder al prototipo de un objeto --> objeto.__proto___
+//Se puede modificar, agregando propiedades --> objeto.prototype.NuevaPropiedad = "valor de Nueva Propiedad"
+
+//Ejemplos
+
+function Perro (nombre,raza){
+  this.nombre=nombre;
+  this.raza=raza
+}
+
+var luki = new Perro("luki","labrador")
+
+Perro.prototype.ladrar = function(){console.log("Ladrando")}
+
+//Ahora todos los perros cuentan con el método ladrar
+
+luki.ladrar()
+
+//Loguea "Ladrando"
+
