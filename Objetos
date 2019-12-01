@@ -1,0 +1,63 @@
+//Existen 4 formas de construir objetos en JS
+
+//1. Object literal
+
+var persona = {
+    nombre: "Martin",
+    edad: 12
+}
+
+//2. Usando funciones constructoras
+
+function Auto(marca, color) {
+    this.marca = marca;
+    this.color = color;
+}
+
+var miAuto = new Auto("ford","rojo")
+
+//3. Usando Object.Create
+// Object.create(prototype_object, object_properties)
+
+var food = {
+    fruta: "Manzana"
+}
+
+var moreFood = Object.create(food, {
+    vegetal: {
+        value: "calabaza"
+    }
+})
+
+//En este ejemplo como food es el prototipo de moreFood, desde el objeto moreFood.fruta se puede acceder al valor "Manzana"
+
+//4. Usando class
+
+class Perros {
+    constructor(nombre, raza) {
+        this.nombre = nombre;
+        this.raza = raza;
+    }
+    ladrar() {
+        console.log("guau")
+    }
+}
+
+var manchas = new Perro("manchas","dalmata")
+
+//La palabra "this"
+
+var objeto1 = {a: "local"}
+
+var a = "global"
+
+function whatsThis() {
+    return this.a
+}
+
+whatsThis() 
+// En este caso la función retornará el valor "global", ya que el this estará apuntando al objeto global window, que tiene seteada la variable a
+
+whatsThis.call(objeto1)
+//En este caso, la función retornará el valor "local". Esto es porque usando call, se define a donde debe apuntar el this al usar la función, en este caso al objeto1.
+
