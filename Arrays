@@ -1,0 +1,91 @@
+//Función cradora de objetos tipo gato
+
+function Cat(nombre, edad) {
+    this.nombre = nombre
+    this.edad = edad
+    this.edadHumana = edad * 5
+    this.imprimirNombre = function() {
+        console.log("Soy el gato " + nombre + " y tengo " + edad + " años")
+    }
+}
+
+var Michi = new Cat("Michi",5)
+var Lola = new Cat("Lola",11)
+var Tinku = new Cat("Tinku",11)
+
+var gatos = []
+
+//usar la función push para agregar elementos (al final) a un array
+
+gatos.push(Michi)
+gatos.push(Lola)
+gatos.push(Tinku)
+
+//Esto resulta en:
+gatos = [Michi,Lola,Tinku]
+
+//Distintas formas de iterar un array:
+  //Usando for
+
+for (i = 0; i < gatos.length; i++) {
+    console.log(gatos[i].imprimirNombre())
+}
+
+  //Usando forEach:
+  //parámetros que recibe forEach(función(valorActual, index, arrayActual), this)
+  
+gatos.forEach(function(currentValue, index) {
+    console.log(currentValue.imprimirNombre(), index)
+})
+
+  //Usando for .. in
+  //Esta no es recomendable usarla porque este ciclo también itera sobre el prototipo de los objetos
+
+for (x in gatos) {
+    console.log(gatos[x].imprimirNombre());
+}
+
+//Funciones para eliminar elementos de un array
+    //pop()--> Elimina el último elemento y retorna el valor del elemento eliminado. Si se usa en una lista vacía devuelve undefined
+
+    gatos.pop()
+
+    //Después de hacer esto gatos=[Michi,Lola] y el valor que se obtiene cuando se ejecuta la línea es Tinku
+
+
+    //shift()-->Elimina el primer elemento y lo devuelve
+
+    gatos.shift()
+
+    //Después de hacer esto gatos=[Lola] y el valor que se obtiene cuando se ejecuta la línea es Michi
+
+    //unshift(elemento) --> Agrega al elemento al principio del array y retorna el nuevo lenght del array
+
+    gatos.unshift(Michi)
+
+    //Después de hacer esto gatos=[Michi, Lola] y el valor que se obtiene es 2, el nuevo length
+
+//La función Splice
+
+    /*Cambia un array, eliminando y/o agregando elementos.
+    Recibe 3 parámetros
+    Array.splice(a,b,c)
+    a-->desde donde comienza a cambiar el array, si a>array.length empieza desde la última posición, si a<0 empieza a contar al revés 
+    b-->indica cuantos elementos se quieren eliminar del array, si se omite o si b>array.length-a, se elimina todo desde array[a]
+    c-->son los ítems que se quieren agregar desde la posición array[a], si se omite sólo se eliminan cosas. 
+    Splice retorna una lista con los elementos que fueron eliminados. Si no eliminó nada devuelve []
+    */
+    
+var personas = ["Ana","Pepe","Carla","Miguel","Paola"]
+  
+  personas.splice(3,1)
+  //Remueve 1 persona del índice 3, retorna lo eliminado, en este caso "Miguel" y personas=["Ana","Pepe","Carla","Paola"]
+  
+  personas.splice(0,2,"Flor","Matias","Carlos")
+  //Remueve 2 personas desde el índice 0, y desde esa misma posición agrega 3 personas. Retorna ["Ana","Pepe"] 
+  //y personas=["Flor", "Matias", "Carlos", "Carla", "Paola"]
+  
+  personas.splice(-2,1)
+  //Remueve una persona del índice 2 empezando a contar desde el último. En este caso se elimina "Carla"
+  
+  
